@@ -111,3 +111,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (stopBtn) stopBtn.addEventListener('click', () => location.reload());
 });
+
+// --- CONTACT SAVING LOGIC ---
+    const contact1Input = document.getElementById('contact1');
+    const contact2Input = document.getElementById('contact2');
+
+    if (contact1Input) {
+        // Load existing number on refresh
+        contact1Input.value = localStorage.getItem('vgn_contact') || '';
+        // Save as you type
+        contact1Input.addEventListener('input', () => {
+            localStorage.setItem('vgn_contact', contact1Input.value);
+        });
+    }
+
+    if (contact2Input) {
+        contact2Input.value = localStorage.getItem('vgn_contact2') || '';
+        contact2Input.addEventListener('input', () => {
+            localStorage.setItem('vgn_contact2', contact2Input.value);
+        });
+    }
